@@ -7,6 +7,8 @@
 
 body {
     background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    background-image: url(bg.avif);
+    background-size: cover;
     min-height: 100vh;
     display: flex;
     justify-content: center;
