@@ -12,17 +12,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentDateElem = document.getElementById('current-date');
     const currentTimeElem = document.getElementById('current-time');
     
-    // State
+   
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     let currentFilter = 'all';
     
-    // Initialize the app
+    
     function init() {
        
         renderTasks();
         updateProgress();
         
-        // Event listeners
+     
         addBtn.addEventListener('click', addTask);
         taskInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') addTask();
@@ -37,17 +37,12 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-    
-    // Update time display
 
     setInterval(() => {
         const date = new Date();
         const hours = String(date.getHours()).padStart(2, '0');
         const minutes = String(date.getMinutes()).padStart(2, '0');
         const seconds = String(date.getSeconds()).padStart(2, '0');
-        // const day = String(date.getDate()).padStart(2, '0');
-        // const month = String(date.getMonth() + 1).padStart(2, '0');
-        // const year = date.getFullYear();
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         currentDateElem.textContent = date.toLocaleDateString('en-US', options);
         if(hours>12){
@@ -56,7 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
         currentTimeElem.innerHTML = `${hours}:${minutes}:${seconds}`;}
     }, 1000);
     
-    // Add a new task
     function addTask() {
         const text = taskInput.value.trim();
         if (text === '') return;
@@ -159,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             `;
             
-            // Add event listeners to the task item
+           
             const checkbox = taskItem.querySelector('.task-checkbox');
             const editBtn = taskItem.querySelector('.edit-btn');
             const deleteBtn = taskItem.querySelector('.delete-btn');
